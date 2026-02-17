@@ -1,5 +1,8 @@
 require('dotenv').config();
 
+const dns = require("node:dns");
+dns.setServers(["1.1.1.1", "1.0.0.1"]);
+
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -9,6 +12,13 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+const { connectDb } = require("./config/db");
+
+connectDb().catch((err) => {
+  console.error("❌ Erreur connexion MongoDB:", err.message);
+  process.exit(1);
+});
 
 app.use(logger('dev'));
 app.use(express.json());
