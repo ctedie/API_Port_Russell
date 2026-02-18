@@ -4,6 +4,9 @@ const router = express.Router();
 const auth = require("../middleware/auth");
 const catwaysController = require("../controllers/catways.controller");
 
+const reservationsRouter = require("./reservations");
+router.use("/:id/reservations", reservationsRouter);
+
 // Toutes les routes protégées
 router.use(auth);
 
