@@ -230,4 +230,8 @@ npm run dev
 
 Puis ouvrir :
 
+<<<<<<< HEAD
 http://localhost:3000
+=======
+http://localhost:3000
+>>>>>>> f4a0b3dec66531243f3b0bea97a4a943bb13b8c4
