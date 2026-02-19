@@ -13,6 +13,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const authRouter = require("./routes/auth");
 const catwaysRouter = require("./routes/catways");
+const docsRouter = require("./routes/docs");
 
 var app = express();
 app.use(cors({
@@ -38,5 +39,13 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/", authRouter);
 app.use("/catways", catwaysRouter);
+app.use("/users", usersRouter);
+app.use("/catways", catwaysRouter);
+app.use("/docs", docsRouter);
+
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ message: "Route not found" });
+});
 
 module.exports = app;
