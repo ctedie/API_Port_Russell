@@ -13,11 +13,14 @@ export default function HomePage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const apiBase = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:3001";
+
   const onSubmit = async (e) => {
     e.preventDefault();
     setError("");
     setLoading(true);
 
+    
     try {
       const data = await apiFetch("/login", {
         method: "POST",
@@ -93,10 +96,7 @@ export default function HomePage() {
         </form>
 
         <div style={{ marginTop: 16, fontSize: 14 }}>
-          <a href="http://localhost:3001" target="_blank" rel="noreferrer">
-            Documentation API
-          </a>
-        </div>
+          <a href={`${apiBase}/docs`} target="_blank" rel="noreferrer">Documentation API</a>        </div>
       </section>
     </main>
   );
