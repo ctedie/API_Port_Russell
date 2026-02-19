@@ -1,3 +1,14 @@
+/**
+ * Reservation model.
+ *
+ * @typedef {Object} Reservation
+ * @property {number} catwayNumber
+ * @property {string} clientName
+ * @property {string} boatName
+ * @property {Date} startDate
+ * @property {Date} endDate
+ */
+
 const mongoose = require("mongoose");
 
 const reservationSchema = new mongoose.Schema(

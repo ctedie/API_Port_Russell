@@ -1,6 +1,22 @@
+/**
+ * Base URL of the backend API.
+ * Must be exposed to the browser via NEXT_PUBLIC_API_URL.
+ * @type {string}
+ */
 export const API_URL =
   process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
+/**
+ * Wrapper around fetch for API calls.
+ * - Adds JSON headers when a body is present
+ * - Adds Authorization: Bearer <token> from localStorage if present
+ * - Throws an Error for non-2xx responses
+ *
+ * @param {string} path API path starting with "/"
+ * @param {RequestInit} [options]
+ * @returns {Promise<any>} Parsed JSON or text response
+ * @throws {Error} When the response is not ok
+ */
 export async function apiFetch(path, options = {}) {
   const token =
     typeof window !== "undefined" ? localStorage.getItem("token") : null;

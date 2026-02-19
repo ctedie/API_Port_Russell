@@ -1,3 +1,12 @@
+/**
+ * User model.
+ *
+ * @typedef {Object} User
+ * @property {string} username
+ * @property {string} email
+ * @property {string} password
+ */
+
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
