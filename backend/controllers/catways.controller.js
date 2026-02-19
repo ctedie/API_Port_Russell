@@ -1,6 +1,13 @@
 const Catway = require("../models/Catway");
 
-// GET /catways
+
+
+/**
+ * Get all catways.
+ * @route GET /catways
+ * @param {Request} req
+ * @param {Response} res
+ */
 exports.list = async (req, res) => {
   const catways = await Catway.find().sort({ catwayNumber: 1 });
   res.json(catways);

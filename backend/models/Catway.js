@@ -1,3 +1,12 @@
+/**
+ * Catway model.
+ *
+ * @typedef {Object} Catway
+ * @property {number} catwayNumber
+ * @property {string} catwayType
+ * @property {string} catwayState
+ */
+
 const mongoose = require("mongoose");
 
 const catwaySchema = new mongoose.Schema(
